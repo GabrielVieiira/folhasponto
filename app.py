@@ -36,6 +36,11 @@ if uploaded_file:
         )
 
         if matriculas_selecionadas:
+            paginas_selecionadas = [dicionario[matricula]["page"] for matricula in matriculas_selecionadas]
+            resumo_paginas = ",".join(map(str, paginas_selecionadas))
+            st.subheader("Resumo das Páginas Selecionadas")
+            st.write(f"Páginas: {resumo_paginas}")
+            st.write(' ')
             for matricula in matriculas_selecionadas:
                 st.write(f"**Matrícula:** {matricula}")
                 st.write(f"**Nome:** {dicionario[matricula]['name']}")
